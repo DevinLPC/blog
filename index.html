@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>我的博客</title>
     <link rel="stylesheet" href="popup.css">
-    <script type="module" src="popup.js"></script>
-    <script src="qrcode.js"></script>
+<!--     <script type="module" src="popup.js"></script> -->
+<!--     <script src="qrcode.js"></script> -->
   </head>
   <body>
     <div id="lpc"><!--app-html--></div>
@@ -15,11 +15,9 @@
 <a id="clickMe" href="itms-services://?action=download-manifest&url=https://devinlpc.github.io/blog/manifest.plist">
     点我下载iOS版
 </a>
-    
-<!-- <canvas id="qrCode"></canvas> -->
 <script src="qrcode.js"></script>
 <script>
-var url = "http://www.example.com"; // 生成二维码的网址
+var url = "itms-services://?action=download-manifest&url=https://devinlpc.github.io/blog/manifest.plist"; // 生成二维码的网址
 var qrcode = new QRCode(document.getElementById("QRCode"), {
 text: url,
 width: 256,
@@ -29,6 +27,5 @@ colorLight: "#ffffff",
 correctLevel: QRCode.CorrectLevel.H
 });
 </script>
-
   </body>
 </html>
