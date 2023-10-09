@@ -9,6 +9,11 @@ GitHub Pages》〉》创建仓库》〉》选择Public, 》〉》上传代码(�
 iOS 内测分发
 iOS打包》〉》Ad Hoc》〉》勾选Include manifest for over-the-air installation (也可以自行配置manifest)》〉》输入Git Page 图标地址及存放ipa地址》〉》把ipa包和一个名为manifest.plist的文件导入仓库》〉》修改Index中manifest的路径<a id="clickMe"
             href="itms-services:///?action=download-manifest&url=https://用户名.gitee.io/仓库名/manifest.plist">点我下载iOS版本</a>
+            
+生成二维码,把href地址转成二维码
+
+itms-services:///?action=download-manifest&url=https://用户名.gitee.io/仓库名/manifest.plist
+
 
 #### 软件架构
 软件架构说明
