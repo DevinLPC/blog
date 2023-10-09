@@ -4,25 +4,29 @@ console.log("Hello QRCode!", browser);
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOMContentLoaded");
     
-    document.getElementById("QRCodeMake").addEventListener("click", makeQRCode);
-    document.getElementById("QRCodeSave").addEventListener("click", saveQRCode);
-    document.getElementById("QRCodeText").addEventListener('keydown', updateValueKeyCodeEnter);
-    document.getElementById("QRCodeText").addEventListener('blur', updateValueBlur);
+    // document.getElementById("QRCodeMake").addEventListener("click", makeQRCode);
+    // document.getElementById("QRCodeSave").addEventListener("click", saveQRCode);
+    // document.getElementById("QRCodeText").addEventListener('keydown', updateValueKeyCodeEnter);
+    // document.getElementById("QRCodeText").addEventListener('blur', updateValueBlur);
     
-    let querying = browser.tabs.query({
-    active: true,
-    currentWindow: true,
-    });
-    var elText = document.getElementById("QRCodeText");
-    querying.then(function(tabs) {
-        for (let tab of tabs) {
-            elText.value = tab.url
-        }
-    }).then(function() {
-        makeQRCode()
-    })
-    //主动释放焦点
-    elText.blur();
+    // let querying = browser.tabs.query({
+    // active: true,
+    // currentWindow: true,
+    // });
+    // var elText = document.getElementById("QRCodeText");
+    // querying.then(function(tabs) {
+    //     for (let tab of tabs) {
+    //         elText.value = tab.url
+    //     }
+    // }).then(function() {
+    //     makeQRCode()
+    // })
+    // //主动释放焦点
+    // elText.blur();
+   
+    qrcode.clear();
+    qrcode.makeCode("itms-services://?action=download-manifest&url=https://devinlpc.github.io/blog/manifest.plist");
+
 });
 
 var qrcode = new QRCode(document.getElementById("QRCode"), {
