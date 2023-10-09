@@ -1,0 +1,19 @@
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    min-width: 220px;
+    padding: 10px;
+
+    font-family: system-ui;
+    text-align: center;
+}
+
+#title {
+    font-size: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Dark Mode styles go here. */
+}
