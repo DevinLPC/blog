@@ -15,5 +15,20 @@
 <a id="clickMe" href="itms-services://?action=download-manifest&url=https://devinlpc.github.io/blog/manifest.plist">
     点我下载iOS版
 </a>
+    
+<canvas id="qrCode"></canvas>
+<script src="qrcode.js"></script>
+<script>
+var url = "http://www.example.com"; // 生成二维码的网址
+var qrcode = new QRCode(document.getElementById("qrCode"), {
+text: url,
+width: 256,
+height: 256,
+colorDark: "#000000",
+colorLight: "#ffffff",
+correctLevel: QRCode.CorrectLevel.H
+});
+</script>
+
   </body>
 </html>
