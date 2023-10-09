@@ -58,3 +58,36 @@ security cms -D -i embedded.mobileprovision
 
 
 
+保存plist文件
+
+security cms -D -i embedded.mobileprovision > tmp.plist
+
+读取plist文件
+
+/usr/libexec/PlistBuddy -c "Print" tmp.plist
+
+读取和修改plist指定字段值
+
+# 打印 my.plist 中字段 name 值
+/usr/libexec/PlistBuddy -c 'Print :name' my.plist
+ 
+# 脚本中获取 plist 文件中字段 name 值，并赋值给变量
+name=$($PlistBuddy -c "print :name" my.plist)
+ 
+# 打印数组字段 testArr 第 0 项
+/usr/libexec/PlistBuddy -c 'Print :testArr:0' my.plist
+
+读取和修改plist类型Data字段值
+
+/usr/libexec/PlistBuddy -c 'Print DeveloperCertificates:0' tmp.plist | openssl x509 -inform DER -noout -enddate
+读取全部信息，把后面的-enddate换成-text
+/usr/libexec/PlistBuddy -c 'Print DeveloperCertificates:0' tmp.plist | openssl x509 -inform DER -noout -text
+删除plist指定字段值
+
+# 删除 tmp.plist 中的字段 Version
+/usr/libexec/PlistBuddy -c 'Delete :Version' tmp.plist
+ 
+/usr/libexec/PlistBuddy -c "Delete :91F6C435D172C8163E0689D3DAD3F3E" tmp.plist
+
+
+
