@@ -3,6 +3,10 @@
 #### 介绍
 博客
 
+
+部署静态页面
+GitHub Pages》〉》创建仓库》〉》选择Public, 》〉》上传代码(包含Index.html)》〉》Settings》〉》选择Branch》〉》Save》〉》打开https://账户名.github.io/仓库名/
+
 #### 软件架构
 软件架构说明
 
