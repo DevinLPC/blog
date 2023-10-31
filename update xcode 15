@@ -1,0 +1,9 @@
+1.运行报错找不到文件libarclite_iphoneos.a
+SDK does not contain 'libarclite' at the path '/Applications/Xcode15.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_iphoneos.a'; try increasing the minimum deployment target
+
+解决方法：
+从Xcode14安装目录下/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/ 中
+
+拷贝libarclite_iphoneos.a文件到Xcode15的安装目录下：/Applications/Xcode15.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/ 
+
+(没有arc文件夹就自己创建一个)
