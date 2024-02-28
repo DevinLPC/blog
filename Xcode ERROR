@@ -1,0 +1,28 @@
+1: Command PhaseScriptExecution failed with a nonzero exit code
+mkdir -p /Users/asin/Library/Developer/Xcode/DerivedData/demoxx-ceppmxzlxcdyckhdreiukrudelva/Build/Products/Debug-iphonesimulator/demoxx.app/Frameworks
+rsync --delete -av --filter P .*.?????? --links --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "/Users/asin/Library/Developer/Xcode/DerivedData/demoxx-ceppmxzlxcdyckhdreiukrudelva/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework" "/Users/asin/Library/Developer/Xcode/DerivedData/demoxx-ceppmxzlxcdyckhdreiukrudelva/Build/Products/Debug-iphonesimulator/demoxx.app/Frameworks"
+building file list ... done
+Alamofire.framework/
+Alamofire.framework/Alamofire
+Alamofire.framework/Info.plist
+Alamofire.framework/_CodeSignature/
+rsync: recv_generator: mkdir "/Users/asin/Library/Developer/Xcode/DerivedData/demoxx-ceppmxzlxcdyckhdreiukrudelva/Build/Products/Debug-iphonesimulator/demoxx.app/Frameworks/Alamofire.framework/_CodeSignature" failed: Operation not permitted (1)
+*** Skipping everything below this failed directory ***
+rsync: mkstemp "/Users/asin/Library/Developer/Xcode/DerivedData/demoxx-ceppmxzlxcdyckhdreiukrudelva/Build/Products/Debug-iphonesimulator/demoxx.app/Frameworks/Alamofire.framework/.Alamofire.lrb1IW" failed: Operation not permitted (1)
+rsync: mkstemp "/Users/asin/Library/Developer/Xcode/DerivedData/demoxx-ceppmxzlxcdyckhdreiukrudelva/Build/Products/Debug-iphonesimulator/demoxx.app/Frameworks/Alamofire.framework/.Info.plist.qtpXuN" failed: Operation not permitted (1)
+
+sent 3744819 bytes  received 76 bytes  7489790.00 bytes/sec
+total size is 3747882  speedup is 1.00
+rsync error: some files could not be transferred (code 23) at /AppleInternal/Library/BuildRoots/4e1473ee-9f66-11ee-8daf-cedaeb4cabe2/Library/Caches/com.apple.xbs/Sources/rsync/rsync/main.c(996) [sender=2.6.9]
+Command PhaseScriptExecution failed with a nonzero exit code
+
+解决:
+Build Settings中，确保ENABLE_USER_SCRIPT_SANDBOXING设置为NO。
+
+解释:
+在 Xcode 的 Build Settings 中，ENABLE_USER_SCRIPT_SANDBOXING 是一个设置项，当设置为 YES 时，它会启用沙盒环境来运行用户脚本。
+这意味着任何在构建过程中通过 Xcode 运行的脚本都将在一个受限的环境中执行，该环境限制了脚本可以访问和更改的文件和系统资源。
+开启脚本沙盒化有助于增加安全性，因为它限制了脚本潜在地造成损害或者不经意间更改关键系统文件的能力。
+然而，在某些情况下，你的构建脚本可能需要访问一些外部资源，那么沙盒环境可能会导致脚本执行失败。
+因此，你可能需要根据实际需要配置该设置项。如果你确定你的脚本不会对系统造成损害，并且确实需要更广泛的权限，你可能会选择关闭这个功能（即设置为 NO）。
+
