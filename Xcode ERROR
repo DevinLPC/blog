@@ -26,3 +26,12 @@ Build Settings中，确保ENABLE_USER_SCRIPT_SANDBOXING设置为NO。
 然而，在某些情况下，你的构建脚本可能需要访问一些外部资源，那么沙盒环境可能会导致脚本执行失败。
 因此，你可能需要根据实际需要配置该设置项。如果你确定你的脚本不会对系统造成损害，并且确实需要更广泛的权限，你可能会选择关闭这个功能（即设置为 NO）。
 
+2: Xcode 14+ 模拟器不能启动
+
+解决:
+Build Settings中，Exclude architectures 移除 arm64
+pod 的 Podfile 移除 config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+更改 其他 方式导入的 私有库 Exclude architectures arm64
+
+解释:
+Xcode 14+ 模拟器支持 arm64 而以往仅真机支持
