@@ -1,0 +1,31 @@
+iOS17 适配指南
+
+增加了 UIContentUnavailableView，UIView 与 UIViewController 都可以设置数据为空时的占位视图。
+
+推出新的数据持久化框架 SwiftData。
+
+UIFont.TextStyle 增加了新的超大字体样式extraLargeTitle与extraLargeTitle2。
+
+UIImageView 支持显示 HDR 图片。
+
+UIImageView 增加了 Symbol Animations，通过addSymbolEffect()与removeSymbolEffect()方法可以实现 SF Symbols 图标的添加与移除动画。
+
+UIButton 也增加了 Symbol Animations，使得按钮中使用的 SF Symbols 图标可以呈现动画。
+
+UITextField 增加了新的birthdate与creditCard相关的 textContentType。
+
+UIPageControl 增加了类型为 UIPageControlTimerProgress 的参数progress，可以根据指定的时间自动切换。
+
+UICollectionView 效率大幅提升。
+
+UICollectionViewCompositionalLayout 中的 NSCollectionLayoutSize 增加了一个新的描述方法uniformAcrossSibling()，可以根据内容自适应布局。
+
+UIAction 增加了新的构造方法，可以设置更多参数。
+
+UIMenu 增加了新的显示模式displayAsPalette。
+
+UIViewController 增加了新的生命周期函数viewIsAppearing()，调用时机介于viewWillAppear()与viewDidAppear()之间，并且兼容到 iOS 13。
+
+UIViewController 增加了新的属性contentUnavailableConfiguration，用于设置view内容不可达时的占位内容。
+
+弹簧动画增加了新的专属 API。
